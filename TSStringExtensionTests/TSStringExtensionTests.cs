@@ -25,11 +25,18 @@ namespace TSStringExtension.Tests
             Assert.AreEqual(phoneNum, phoneNum.MaskPhoneBySymbol('*'));
         }
 
+
         [TestMethod()]
-        public void SymbolIsEmpty_Should_DoNotThing()
+        public void PhoneNumWithSymbol_Should_ReturnMaskPhoneNumString()
         {
             string phoneNum = "0987654321";
-            Assert.AreEqual(phoneNum, phoneNum.MaskPhoneBySymbol(' '));
+            Assert.AreEqual("0987***321", phoneNum.MaskPhoneBySymbol('*'));
+
+            Assert.AreEqual("0987---321", phoneNum.MaskPhoneBySymbol('-'));
+
+            Assert.AreEqual("0987$$$321", phoneNum.MaskPhoneBySymbol('$'));
+
+            Assert.AreEqual("0987   321", phoneNum.MaskPhoneBySymbol(' '));
         }
     }
 }

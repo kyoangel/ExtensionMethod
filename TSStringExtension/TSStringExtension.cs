@@ -12,10 +12,6 @@ namespace TSStringExtension
         {
 
             var result = string.Empty;
-            if (string.IsNullOrWhiteSpace(symbol.ToString()))
-            {
-                return str;
-            }
 
             if (str.Length!=10)
             {
@@ -28,6 +24,18 @@ namespace TSStringExtension
                 if (!int.TryParse(character.ToString(), out i))
                 {
                     return str;
+                }
+            }
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i>3 && i <7)
+                {
+                    result += symbol;
+                }
+                else
+                {
+                    result += str[i];
                 }
             }
             return result;
