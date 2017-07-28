@@ -1,0 +1,2 @@
+# ExtensionMethod
+practice ExtensionMethod
