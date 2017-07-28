@@ -15,7 +15,14 @@ namespace TSStringExtension.Tests
         public void PhoneNumLengthNotEqualsTo10_Should_DoNotThing()
         {
             string phoneNum = "123456";
-            Assert.AreEqual(phoneNum, phoneNum.MaskPhoneBySymbol(' '));
+            Assert.AreEqual(phoneNum, phoneNum.MaskPhoneBySymbol('*'));
+        }
+
+        [TestMethod()]
+        public void PhoneNumNotAllDigital_Should_DoNotThing()
+        {
+            string phoneNum = "0950rteas8";
+            Assert.AreEqual(phoneNum, phoneNum.MaskPhoneBySymbol('*'));
         }
     }
 }

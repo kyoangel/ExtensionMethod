@@ -10,10 +10,19 @@ namespace TSStringExtension
     {
         public static string MaskPhoneBySymbol(this string str, char symbol)
         {
-            string result = string.Empty;
+            var result = string.Empty;
             if (str.Length!=10)
             {
                 return str;
+            }
+
+            foreach (var character in str)
+            {
+                int i;
+                if (!int.TryParse(character.ToString(), out i))
+                {
+                    return str;
+                }
             }
             return result;
         }
