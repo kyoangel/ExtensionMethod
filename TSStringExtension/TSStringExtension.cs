@@ -10,7 +10,13 @@ namespace TSStringExtension
     {
         public static string MaskPhoneBySymbol(this string str, char symbol)
         {
+
             var result = string.Empty;
+            if (string.IsNullOrWhiteSpace(symbol.ToString()))
+            {
+                return str;
+            }
+
             if (str.Length!=10)
             {
                 return str;

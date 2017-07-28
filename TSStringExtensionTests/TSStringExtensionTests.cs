@@ -24,5 +24,12 @@ namespace TSStringExtension.Tests
             string phoneNum = "0950rteas8";
             Assert.AreEqual(phoneNum, phoneNum.MaskPhoneBySymbol('*'));
         }
+
+        [TestMethod()]
+        public void SymbolIsEmpty_Should_DoNotThing()
+        {
+            string phoneNum = "0987654321";
+            Assert.AreEqual(phoneNum, phoneNum.MaskPhoneBySymbol(' '));
+        }
     }
 }
