@@ -18,13 +18,10 @@ namespace TSStringExtension
                 return str;
             }
 
-            foreach (var character in str)
+            // check all digital
+            if (!str.All(x => Char.IsDigit(x)))
             {
-                int i;
-                if (!int.TryParse(character.ToString(), out i))
-                {
-                    return str;
-                }
+                return str;
             }
 
             for (int i = 0; i < str.Length; i++)
