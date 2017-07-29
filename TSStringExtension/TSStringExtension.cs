@@ -13,29 +13,27 @@ namespace TSStringExtension
 
             var result = string.Empty;
 
-            if (str.Length!=10)
-            {
+            if (str.Length != 10)
                 return str;
-            }
 
-            // check all digital
-            if (!str.All(x => Char.IsDigit(x)))
-            {
+            if (!CheckAllDigital(str))
                 return str;
-            }
+            
+            return MaskCenterDigitWithSymbol(str, symbol, result);
+        }
 
-            for (int i = 0; i < str.Length; i++)
-            {
-                if (i>3 && i <7)
-                {
-                    result += symbol;
-                }
-                else
-                {
-                    result += str[i];
-                }
-            }
-            return result;
+        private static string MaskCenterDigitWithSymbol(string str, char symbol, string result)
+        {
+            return new string(str.Select((x, i) => (i > 3 && i < 7) ? symbol : x).ToArray());
+        }
+
+        private static bool CheckAllDigital(string str)
+        {
+            if (str.All(x => Char.IsDigit(x)))
+                return true;
+            else
+                return false;
+
         }
     }
 }
